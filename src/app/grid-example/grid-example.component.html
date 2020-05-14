@@ -1,11 +1,33 @@
-<button (click)="getSelectedRows()">Get Selected Rows</button>
-<ag-grid-angular
-  #agGrid
-  style="width: 500px; height: 500px;"
-  class="ag-theme-balham"
-  [rowData]="rowData | async"
-  [columnDefs]="columnDefs"
-  [autoGroupColumnDef]="autoGroupColumnDef"
-  rowSelection="multiple"
->
-</ag-grid-angular>
+<div class="example-toolbar">
+  <div class="options-container">
+    <div>
+      <label>Data Size:</label>
+      <select [(ngModel)]="currentDataSizeIndex" (ngModelChange)="onDataSizeChanged()">
+        <option *ngFor="let dataSize of dataSizes;index as optionIndex" [value]="optionIndex" label="{{dataSize.rows + ' Rows, '+dataSize.cols + ' Cols'}}"></option>
+      </select>
+    </div>
+    <div>
+      <label for="global-filter">Filter:</label>
+      <input
+        placeholder="Filter any column..."
+        type="text"
+        [(ngModel)]="globalFilter"
+        (ngModelChange)="onGlobalFilterChange()"
+        id="global-filter"
+        style="flex: 1;"
+      />
+    </div>
+  </div>
+</div>
+<div class="options-expander">
+  <span id="messageText">{{loadingMessage}}</span>
+  <span>&nbsp;</span>
+</div>
+<div id="grid-wrapper">
+  <ag-grid-angular
+    style="height: 100%; overflow: hidden;"
+    class="ag-theme-balham"
+    [gridOptions]="gridOptions"
+  >
+  </ag-grid-angular>
+</div>

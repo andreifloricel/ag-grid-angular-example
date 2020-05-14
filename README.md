@@ -1,5 +1,9 @@
 # AgGridAngularExample
 
+This is an Angular port of the official ag-Grid example from [https://www.ag-grid.com/example.php](https://www.ag-grid.com/example.php).  
+The [original source code](https://www.ag-grid.com/example.js) was changed as little as possible, even at the cost of readability & verbosity.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
 ## Development server

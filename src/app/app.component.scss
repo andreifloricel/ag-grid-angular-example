@@ -1,0 +1,13 @@
+// #example-wrapper, .page-content
+app-grid-example {
+  position: absolute;
+  // top: 4rem;
+  height: 100%;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  width: 100%;
+}
