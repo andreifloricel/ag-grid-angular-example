@@ -76,6 +76,8 @@ export class GridExampleComponent implements OnInit {
   }
 
   createData() {
+    const startTime = performance.now();
+
     this.loadInstance++;
 
     let loadInstanceCopy = this.loadInstance;
@@ -114,7 +116,10 @@ export class GridExampleComponent implements OnInit {
         window.setTimeout(() => {
           this.gridOptions.api.setColumnDefs(colDefs);
           this.gridOptions.api.setRowData(data);
-          this.loadingMessage = '';
+
+          const endTime = performance.now();
+
+          this.loadingMessage = `Rendertime: ${((endTime - startTime) / 1000).toFixed(3)} seconds`;
         }, 0);
       }
     }, 0);
@@ -1124,6 +1129,14 @@ export class GridExampleComponent implements OnInit {
       {
         rows: 100000,
         cols: defaultColumnCount,
+      },
+      {
+        rows: 100000,
+        cols: 100,
+      },
+      {
+        rows: 200000,
+        cols: 300,
       },
     ];
   }
